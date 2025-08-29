@@ -1,3 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Serif+Display&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
 *{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Reddit Sans", sans-serif;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    background-position: center;
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    font-size: larger;
+    padding-top: 40px;
+}
+
+h1{
+    font-family: "Libertinus Serif Display", system-ui;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-style: oblique;
+}
+
+.dropDowns{
+    width: 100%;
+    text-align: center;
+    height: fit-content;
+    padding: 20px;
+}
+
+.dropDowns select{
+    font-family: "Reddit Sans", sans-serif;
+    width: 15%;
+    height: 30px;
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border: none;
+    border-radius: 4px;
+    color: rgb(222, 222, 222);
+}
+
+.dropDowns select option {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(222, 222, 222);
+    border: none;
+}
+
+.dropDowns button {
+    font-family: "Reddit Sans", sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border: none;
+    border-radius: 4px;
+    color: white;
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 200px);
+  margin-top: 20px;
+}
+
+.preview img {
+  max-width: 400px;
+  max-height: 500px;
+  object-fit: contain;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }

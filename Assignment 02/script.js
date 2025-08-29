@@ -1,38 +1,72 @@
-// =============
-//  QUESTION 01
-// =============
+const mobiles = {
+    Apple: {
+    models: {
+        "iPhone 14": "./img/iphone_14.png",
+        "iPhone 13": "./img/iphone_13.png",
+        "iPhone 15": "./img/iPhone 15.png"
+    }
+    },
+    Samsung: {
+    models: {
+        "Galaxy S23": "./img/samsung-galaxy-s23-.webp",
+        "Galaxy Z Flip 5": "./img/galaxy-z-flip5-.webp",
+        "Galaxy A54": "./img/galaxy-a54.avif"
+    }
+    },
+    Xiaomi: {
+    models: {
+        "Redmi Note 12": "./img/xiaomi-redmi-note-12-.webp",
+        "Poco X5 Pro": "./img/poco x5.webp",
+        "Xiaomi 13 Pro": "./img/xiaomi 13.png"
+    }
+    },
+    Oppo: {
+    models: {
+        "Oppo Reno 10": "./img/reno_10_oppo.png",
+        "Oppo F23": "./img/oppo f23.webp",
+        "Oppo A78": "./img/a78-oppo.png"
+    }
+    },
+    Vivo: {
+    models: {
+        "Vivo V27": "./img/vivo v27.png",
+        "Vivo Y36": "./img/vivo-y36-.webp",
+        "Vivo X90 Pro": "./img/vivo x90.png"
+    }
+    }
+};
 
-document.write(`<h2>Marksheet</h2>`)
+let brand = document.getElementById("brands");
+let model = document.getElementById("models");
+let search = document.getElementById("search");
 
-// Const because total marks are fixed
-const total = 500;
+for(let brandName in mobiles){
+    brand.innerHTML += `<option value="${brandName}">${brandName}</option>`;
+}
 
-// Let because obtained marks can vary
-let english = 86;
-let chemistry = 56;
-let physics = 68;
-let maths = 70;
-let computer = 73;
+brand.addEventListener("change", function (){
+    model.innerHTML = '<option value="model">Choose That Brand Model</option>';
 
-// Calculate total obtained marks
-let obtained = english + chemistry + physics + maths + computer;
+    let selectedBrand = this.value;
 
-// Calculate percentage
-let percentage = (obtained / total) * 100;
+    if(selectedBrand !== "brand"){
+        let models = mobiles[selectedBrand].models;
+        let options = "";
+        for (let modelName in models) {
+        options += `<option value="${models[modelName]}">${modelName}</option>`;
+        }
 
-// Decide grade
-let grade = percentage >= 90 ? "A+" : percentage >= 80 ? "A" : percentage >= 70 ? "B" : percentage >= 60 ? "C" : percentage >= 50 ? "D" : "Fail";
+        model.innerHTML += options;
+    }
+});
 
-// Display output
-document.write(`
-    English: ${english}<br>
-    Chemistry: ${chemistry}<br>
-    Maths: ${maths}<br>
-    Physics: ${physics}<br>
-    Computer: ${computer}<br>
-    -------------------------<br>
-    Total Marks: ${total}<br>
-    Obtained Marks: ${obtained}<br>
-    Percentage: ${percentage.toFixed(2)}<br>
-    Grade: ${grade}<br>
-`)
+search.addEventListener("click", function (){
+    let selectedImg = model.value;
+
+    if(selectedImg !== "model") {
+        document.querySelector(".preview").innerHTML = 
+        `<img src="${selectedImg}" alt="Selected Model">`;
+    }else{
+        preview.innerHTML = "<p>Please select a model</p>";
+    }
+});
